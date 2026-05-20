@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About the Exchange Opportunities Hub — learn how the platform works, how data is updated, and our disclaimer." />
+  <meta name="theme-color" content="#0D2B5E" />
+
+  <title>About — Exchange Opportunities Hub</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       HEADER / NAVIGATION
+  ════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <a href="index.html" class="site-logo" aria-label="Exchange Opportunities Hub — Home">
+        <div class="logo-icon" aria-hidden="true">🌐</div>
+        <div class="logo-text">
+          Exchange Opportunities Hub
+          <span>International Academic Mobility</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Opportunities</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       ABOUT HERO
+  ════════════════════════════════════════════ -->
+  <section class="about-hero" aria-labelledby="about-heading">
+    <div class="container">
+      <h1 id="about-heading">About this Platform</h1>
+      <p>
+        Exchange Opportunities Hub is an open, collaboratively maintained directory of international
+        academic exchange programs for undergraduate and graduate students.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════ -->
+  <main role="main" id="main-content">
+    <div class="container">
+
+      <!-- ── Purpose ── -->
+      <section class="about-section" aria-labelledby="purpose-heading">
+        <h2 id="purpose-heading">Purpose</h2>
+
+        <p>
+          This platform was created to help students, advisors, and international offices easily browse
+          and discover academic exchange opportunities worldwide — in one place, with consistent
+          structured information.
+        </p>
+
+        <p>
+          Many universities maintain exchange agreements scattered across department pages, PDFs, or
+          internal databases. This hub centralises those opportunities in a filterable, searchable,
+          mobile-friendly interface that requires no technical expertise to maintain.
+        </p>
+
+        <p>
+          The platform is designed for universities, research labs, and international affairs offices
+          that want to publish opportunities to students without maintaining a complex web infrastructure.
+          The entire website is static, hosted for free on GitHub Pages, and updated simply by editing
+          a Google Sheet.
+        </p>
+      </section>
+
+      <!-- ── How data is updated ── -->
+      <section class="about-section" id="update-data" aria-labelledby="update-heading">
+        <h2 id="update-heading">How Collaborators Update Data</h2>
+
+        <p>
+          All opportunity data lives in a Google Sheet. Non-technical collaborators — international
+          coordinators, department staff, or faculty — can add, edit, or deactivate opportunities
+          simply by editing the spreadsheet. The website automatically reflects any changes.
+        </p>
+
+        <p>
+          No code changes are required. No deployment is needed. Changes appear on the website within
+          seconds of saving the spreadsheet.
+        </p>
+
+        <div class="steps-list" role="list">
+
+          <div class="step-item" role="listitem">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Access the Google Sheet</h4>
+              <p>
+                Collaborators receive editor access to the shared Google Sheet. They log in with their
+                Google account and open the sheet. Public users can view data; only authorised
+                collaborators can edit.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item" role="listitem">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Add or Edit a Row</h4>
+              <p>
+                Each row represents one exchange opportunity. Fill in the standard columns
+                (institution, country, scholarship, deadline, etc.) following the field reference
+                below. To add a new opportunity, simply add a new row.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item" role="listitem">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Add Custom Fields (Optional)</h4>
+              <p>
+                If you need to capture information not in the standard schema — such as
+                <em>housing_support</em>, <em>visa_support</em>, or <em>interview_required</em> —
+                simply add a new column. The website will automatically detect and display
+                these extra fields in the "Additional Information" section of each opportunity's
+                detail view. No code changes are needed.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item" role="listitem">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Deactivate an Opportunity</h4>
+              <p>
+                To hide an opportunity without deleting it, set the <code>active</code> column to
+                <code>FALSE</code>. The row remains in the sheet for record-keeping but will not
+                appear on the website.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-item" role="listitem">
+            <div class="step-number" aria-hidden="true">5</div>
+            <div class="step-content">
+              <h4>Save and Done</h4>
+              <p>
+                Google Sheets saves automatically. The website reads data on each page load, so
+                visitors will see updated information immediately. No publishing, no deployment.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>Google Sheets Permission Model:</strong> The sheet must be set to
+            <em>Anyone with the link can view</em> (read-only for the public) so the website
+            can fetch the CSV export. Collaborators who need to edit the data should be given
+            explicit <em>Editor</em> access via the sharing settings — they must be logged into
+            their Google account to make changes.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- ── Google Sheets Setup ── -->
+      <section class="about-section" aria-labelledby="sheets-heading">
+        <h2 id="sheets-heading">Connecting Your Google Sheet</h2>
+
+        <p>
+          The website is configured to fetch data from a single URL defined in <code>app.js</code>.
+          To connect your own Google Sheet, a site administrator edits one line of code.
+        </p>
+
+        <p>
+          In <code>app.js</code>, find the configuration block at the top of the file and replace
+          the <code>CSV_URL</code> value with the export URL of your sheet:
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>Format:</strong><br>
+            <code>
+              https://docs.google.com/spreadsheets/d/<strong>YOUR_SHEET_ID</strong>/gviz/tq?tqx=out:csv&amp;sheet=<strong>opportunities</strong>
+            </code><br><br>
+            Replace <strong>YOUR_SHEET_ID</strong> with the long alphanumeric ID from your sheet's
+            URL, and <strong>opportunities</strong> with the exact name of the sheet tab.
+          </p>
+        </div>
+
+        <p>
+          Once updated, push the change to GitHub. GitHub Pages will deploy the updated site
+          automatically within a few minutes.
+        </p>
+      </section>
+
+      <!-- ── Field Reference ── -->
+      <section class="about-section" aria-labelledby="fields-heading">
+        <h2 id="fields-heading">Standard Field Reference</h2>
+
+        <p>
+          The following columns are recognised by the website. Column header names in the Google
+          Sheet must match exactly (lowercase, underscores for spaces). Any extra columns are
+          automatically detected and displayed as "Additional Information."
+        </p>
+
+        <div style="overflow-x:auto;">
+          <table class="fields-table" aria-label="Standard data fields">
+            <thead>
+              <tr>
+                <th>Column Header</th>
+                <th>Description</th>
+                <th>Format / Example</th>
+                <th>Required?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>institution</code></td>
+                <td>Full name of the university or institution</td>
+                <td>University of Toronto</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>country</code></td>
+                <td>Country where the institution is located</td>
+                <td>Canada</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>city</code></td>
+                <td>City of the campus</td>
+                <td>Toronto</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>continent</code></td>
+                <td>Continent (used for filtering)</td>
+                <td>Americas</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>level</code></td>
+                <td>Academic levels accepted. Use semicolons to list multiple.</td>
+                <td>Undergraduate;Graduate</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>eligible_programs</code></td>
+                <td>Eligible programs or faculties. "All programs" if unrestricted.</td>
+                <td>Engineering;Natural Sciences</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>scholarship</code></td>
+                <td>Scholarship availability</td>
+                <td>Yes / Partial / No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>scholarship_details</code></td>
+                <td>Full description of scholarship coverage</td>
+                <td>Full tuition + CAD 1500/month</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>duration</code></td>
+                <td>Duration of the exchange</td>
+                <td>1 semester / 1 academic year</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>language</code></td>
+                <td>Language(s) of instruction. Semicolons for multiple.</td>
+                <td>English;French</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>requirements</code></td>
+                <td>Admission requirements (GPA, documents, etc.)</td>
+                <td>Minimum GPA 3.0; 2 reference letters</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>english_test</code></td>
+                <td>English proficiency test requirement</td>
+                <td>IELTS 6.5 or TOEFL 90</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>deadline</code></td>
+                <td>Application deadline in ISO format</td>
+                <td>2025-03-15</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>deadline_status</code></td>
+                <td>Current status of the deadline</td>
+                <td>Open / Closing Soon / Closed</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>official_url</code></td>
+                <td>Link to the official exchange program page</td>
+                <td>https://www.university.edu/exchange</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><code>contact_email</code></td>
+                <td>Contact email for the international office</td>
+                <td>exchange@university.edu</td>
+                <td>Recommended</td>
+              </tr>
+              <tr>
+                <td><code>notes</code></td>
+                <td>Free-text notes for students</td>
+                <td>Apply through your home institution's international office.</td>
+                <td>Optional</td>
+              </tr>
+              <tr>
+                <td><code>active</code></td>
+                <td>Whether this opportunity is displayed</td>
+                <td>TRUE / FALSE</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box" style="margin-top: var(--space-6);">
+          <p>
+            <strong>Dynamic / Extra Columns:</strong> Any column you add beyond the standard fields
+            above will automatically appear in the "Additional Information" section of the detail
+            view. Examples: <code>housing_support</code>, <code>visa_support</code>,
+            <code>application_fee</code>, <code>interview_required</code>, <code>lab_rotation</code>.
+            No code changes are required — just add the column.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- ── Disclaimer ── -->
+      <section class="about-section" id="disclaimer" aria-labelledby="disclaimer-heading">
+        <h2 id="disclaimer-heading">Disclaimer</h2>
+
+        <p>
+          The information on this platform is provided for guidance only. Exchange programs may
+          change their terms, deadlines, scholarship values, or eligibility requirements at any time.
+          Collaborators update this data on a best-effort basis.
+        </p>
+
+        <div class="warning-box">
+          <p>
+            <strong>⚠ Always verify information directly on official university or program websites
+            before making any application decisions.</strong> This platform does not guarantee the
+            accuracy, completeness, or timeliness of any listed opportunity. The maintainers accept
+            no responsibility for decisions made based on information published here.
+          </p>
+        </div>
+
+        <p>
+          If you notice incorrect or outdated information, please contact the site administrator
+          or your institution's international affairs office so the data can be corrected.
+        </p>
+
+      </section>
+
+      <!-- ── Technical / Open Source ── -->
+      <section class="about-section" aria-labelledby="tech-heading">
+        <h2 id="tech-heading">Technical Architecture</h2>
+
+        <p>
+          This website is intentionally simple and cost-free. It is built entirely with static HTML,
+          CSS, and JavaScript — no server, no database, no backend, no paid services.
+        </p>
+
+        <p>
+          Data is read directly from a public Google Sheets CSV export URL using
+          <a href="https://www.papaparse.com" target="_blank" rel="noopener noreferrer">PapaParse</a>,
+          a browser-side CSV parsing library. All filtering, searching, and rendering happens in the
+          browser. The only moving part is the Google Sheet.
+        </p>
+
+        <p>
+          The site is hosted on GitHub Pages (100% free, served via CDN, custom domains supported).
+          Source code is available on
+          <a href="https://github.com/exchangeopportunitieshub/exchangeopportunitieshub.github.io"
+            target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+
+      </section>
+
+    </div><!-- /container -->
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-text">🌐 Exchange Opportunities Hub</span>
+          <p>
+            A platform for discovering international academic exchange programs.
+            Always verify details on official university websites before applying.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html">Opportunities</a>
+            <a href="about.html">About this Platform</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="about.html#update-data">How to Update Data</a>
+            <a href="about.html#disclaimer">Disclaimer</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Exchange Opportunities Hub. Open-source. <a href="https://github.com/exchangeopportunitieshub/exchangeopportunitieshub.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+        <span>Data updated by collaborators via Google Sheets</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application JS (handles nav toggle) -->
+  <script src="app.js"></script>
+
+</body>
+</html>

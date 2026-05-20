@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Exchange Opportunities Hub — Explore international academic exchange opportunities for undergraduate and graduate students worldwide." />
+  <meta name="theme-color" content="#0D2B5E" />
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:title" content="Exchange Opportunities Hub" />
+  <meta property="og:description" content="Explore international academic exchange opportunities for undergraduate and graduate students." />
+  <meta property="og:type" content="website" />
+
+  <title>Exchange Opportunities Hub</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- PapaParse — robust CSV parsing (handles quoted commas, newlines in fields) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"
+    integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+  <!-- ── Notification bar (shown on data errors) ── -->
+  <div id="notification-bar" class="notification-bar" role="alert" aria-live="polite"></div>
+
+  <!-- ════════════════════════════════════════════
+       HEADER / NAVIGATION
+  ════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <a href="index.html" class="site-logo" aria-label="Exchange Opportunities Hub — Home">
+        <div class="logo-icon" aria-hidden="true">🌐</div>
+        <div class="logo-text">
+          Exchange Opportunities Hub
+          <span>International Academic Mobility</span>
+        </div>
+      </a>
+
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Opportunities</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow" aria-hidden="true">Academic Exchange Programs</div>
+
+        <h1 id="hero-heading">
+          Exchange<br>
+          <em>Opportunities Hub</em>
+        </h1>
+
+        <p class="hero-subtitle">
+          Explore international academic exchange opportunities for undergraduate and graduate students.
+          Filter by country, level, scholarship, and deadline to find your perfect program.
+        </p>
+
+        <div class="hero-stats" role="region" aria-label="Database statistics">
+          <div class="stat-item">
+            <span class="stat-number" id="hero-count">—</span>
+            <span class="stat-label">Opportunities</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="hero-countries">—</span>
+            <span class="stat-label">Countries</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="hero-continents">—</span>
+            <span class="stat-label">Continents</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       FILTER / SEARCH PANEL
+  ════════════════════════════════════════════ -->
+  <section class="filters-section" aria-label="Search and filter opportunities">
+    <div class="container">
+
+      <div class="filters-header">
+        <div class="filters-title">Filter Opportunities</div>
+        <button class="filters-clear" id="clear-filters" aria-label="Clear all active filters">
+          ✕ Clear filters
+        </button>
+      </div>
+
+      <!-- Keyword search -->
+      <div class="search-bar" role="search">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <label for="search-input" class="sr-only">Search opportunities by keyword</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search by institution, country, program, keyword…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search opportunities"
+        />
+      </div>
+
+      <!-- Dropdown filters grid -->
+      <div class="filters-grid" role="group" aria-label="Filter dropdowns">
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-country">Country</label>
+          <select class="filter-select" id="filter-country" aria-label="Filter by country">
+            <option value="">All Countries</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-continent">Continent</label>
+          <select class="filter-select" id="filter-continent" aria-label="Filter by continent">
+            <option value="">All Continents</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-level">Academic Level</label>
+          <select class="filter-select" id="filter-level" aria-label="Filter by academic level">
+            <option value="">All Levels</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-scholarship">Scholarship</label>
+          <select class="filter-select" id="filter-scholarship" aria-label="Filter by scholarship availability">
+            <option value="">Any Scholarship</option>
+            <option value="Yes">Full Scholarship</option>
+            <option value="Partial">Partial Scholarship</option>
+            <option value="No">No Scholarship</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-deadline">Deadline</label>
+          <select class="filter-select" id="filter-deadline" aria-label="Filter by deadline status">
+            <option value="">Any Status</option>
+            <option value="open">Open</option>
+            <option value="closing">Closing Soon</option>
+            <option value="closed">Closed</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="filter-language">Language</label>
+          <select class="filter-select" id="filter-language" aria-label="Filter by instruction language">
+            <option value="">Any Language</option>
+          </select>
+        </div>
+
+      </div><!-- /filters-grid -->
+
+      <!-- Active filter chips -->
+      <div id="active-filters" class="active-filters" role="list" aria-label="Active filters"></div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       RESULTS SECTION
+  ════════════════════════════════════════════ -->
+  <main class="results-section" id="main-content" role="main">
+    <div class="container">
+
+      <div class="results-header">
+        <div id="results-count" class="results-count" aria-live="polite" aria-atomic="true"></div>
+
+        <div class="sort-control">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select" aria-label="Sort results">
+            <option value="institution">Institution (A–Z)</option>
+            <option value="country">Country (A–Z)</option>
+            <option value="deadline">Deadline</option>
+            <option value="continent">Continent</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cards injected here by app.js -->
+      <div id="results-container" aria-label="Exchange opportunity listings">
+        <!-- Loading state shown initially -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       DETAIL MODAL
+  ════════════════════════════════════════════ -->
+  <div
+    class="modal-overlay"
+    id="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Opportunity details"
+    aria-hidden="true"
+  >
+    <div class="modal" id="detail-modal" tabindex="-1">
+      <!-- Populated dynamically by app.js -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="logo-text">🌐 Exchange Opportunities Hub</span>
+          <p>
+            A platform for discovering international academic exchange programs.
+            Information is sourced from institutional websites and updated regularly by collaborators.
+            Always verify details on official university websites before applying.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html">Opportunities</a>
+            <a href="about.html">About this Platform</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="about.html#update-data">How to Update Data</a>
+            <a href="about.html#disclaimer">Disclaimer</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Exchange Opportunities Hub. Open-source. <a href="https://github.com/exchangeopportunitieshub/exchangeopportunitieshub.github.io" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+        <span>Data updated by collaborators via Google Sheets</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top -->
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll back to top">↑</button>
+
+  <!-- Application JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>
