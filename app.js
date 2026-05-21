@@ -14,7 +14,7 @@
   https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&sheet=opportunities
    ────────────────────────────────────────────────────────────── */
 const CONFIG = {
-  CSV_URL: 'https://docs.google.com/spreadsheets/d/1tO5T4iJHwYA4_TYuHxW5zgPnjIFPJ2FXZBIz8Ule74I/export?format=csv&sheet=opportunities',   // Use Google export CSV endpoint (browser CORS-friendly)
+  CSV_URL: 'https://docs.google.com/spreadsheets/d/1tO5T4iJHwYA4_TYuHxW5zgPnjIFPJ2FXZBIz8Ule74I/export?format=csv&sheet=opportunities',   // Google Sheets CSV source
 
   // Standard fixed schema fields (order defines render order in detail view)
   FIXED_FIELDS: [
@@ -180,6 +180,10 @@ async function loadData() {
   showLoading();
 
   try {
+    if (CONFIG.CSV_URL.includes('/SHEET_ID/')) {
+      throw new Error('CSV_URL still contains placeholder SHEET_ID. Replace it with your real Google Sheet ID.');
+    }
+
     // PapaParse remote fetch (works with local files and remote URLs)
     const result = await new Promise((resolve, reject) => {
       Papa.parse(CONFIG.CSV_URL, {
