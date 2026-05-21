@@ -74,7 +74,7 @@ git init
 git add .
 git commit -m "Initial commit — Exchange Opportunities Hub"
 git branch -M main
-git remote add origin https://github.com/exchangeopportunitieshub/exchangeopportunitieshub.github.io.git
+git remote add origin https://github.com/bme-research/exchangeopportunitieshub.github.io
 git push -u origin main
 ```
 
