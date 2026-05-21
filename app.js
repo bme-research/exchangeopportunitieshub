@@ -14,7 +14,7 @@
    https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=opportunities
    ────────────────────────────────────────────────────────────── */
 const CONFIG = {
-  CSV_URL: './data/sample.csv',   // ← change to your Google Sheets CSV export URL
+  CSV_URL: 'https://docs.google.com/spreadsheets/d/1tO5T4iJHwYA4_TYuHxW5zgPnjIFPJ2FXZBIz8Ule74I/gviz/tq?tqx=out:csv&sheet=opportunities',   // ← change to your Google Sheets CSV export URL
 
   // Standard fixed schema fields (order defines render order in detail view)
   FIXED_FIELDS: [

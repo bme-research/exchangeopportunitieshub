@@ -2,7 +2,7 @@
 
 A professional, fully static website listing international academic exchange opportunities for students. Data is managed via Google Sheets — no code changes needed by collaborators.
 
-**Live site target:** [https://exchangeopportunitieshub.github.io](https://exchangeopportunitieshub.github.io)
+**Live site target:** [https://exchangeopportunitieshub](https://exchangeopportunitieshub)
 
 ---
 
@@ -61,7 +61,7 @@ The repository name must match exactly for GitHub Pages to serve it at the root 
 
 1. Log in to GitHub
 2. Click **New repository**
-3. Set repository name to: `exchangeopportunitieshub.github.io`
+3. Set repository name to: `exchangeopportunitieshub`
 4. Set visibility to **Public**
 5. Do NOT initialise with a README (you'll push your own files)
 6. Click **Create repository**
@@ -74,7 +74,7 @@ git init
 git add .
 git commit -m "Initial commit — Exchange Opportunities Hub"
 git branch -M main
-git remote add origin https://github.com/bme-research/exchangeopportunitieshub.github.io
+git remote add origin https://github.com/bme-research/exchangeopportunitieshub
 git push -u origin main
 ```
 
@@ -88,7 +88,7 @@ git push -u origin main
 6. Click **Save**
 
 GitHub Pages will build and deploy your site. It will be live at:
-**`https://exchangeopportunitieshub.github.io`**
+**`https://exchangeopportunitieshub`**
 
 > ⏱ First deployment typically takes 1–3 minutes. Subsequent updates after a `git push` usually deploy within 60 seconds.
 
@@ -271,7 +271,7 @@ The card display is built in the `buildCard()` function in `app.js`. The detail 
 1. In your GitHub repository, go to **Settings → Pages**
 2. Under "Custom domain", enter your domain (e.g., `opportunities.youruniversity.edu`)
 3. Create a `CNAME` file in the root of your repo with your domain
-4. Configure your DNS with a CNAME record pointing to `exchangeopportunitieshub.github.io`
+4. Configure your DNS with a CNAME record pointing to `exchangeopportunitieshub`
 
 ---
 
