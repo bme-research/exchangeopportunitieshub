@@ -11,10 +11,10 @@
 
 /* ──────────────────────────────────────────────────────────────
    CONFIGURATION — Replace CSV_URL with your Google Sheets URL:
-   https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=opportunities
+  https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&sheet=opportunities
    ────────────────────────────────────────────────────────────── */
 const CONFIG = {
-  CSV_URL: './data/sample.csv',   // ← change to your Google Sheets CSV export URL
+  CSV_URL: 'https://docs.google.com/spreadsheets/d/1tO5T4iJHwYA4_TYuHxW5zgPnjIFPJ2FXZBIz8Ule74I/export?format=csv&sheet=opportunities',   // Use Google export CSV endpoint (browser CORS-friendly)
 
   // Standard fixed schema fields (order defines render order in detail view)
   FIXED_FIELDS: [
